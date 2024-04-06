@@ -1,20 +1,33 @@
+x
+
 .about-section {
     background-color: #f8f9fa;
     padding: 80px 0;
   }
-  
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
   .about-content {
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
-  }
+    padding: 0 50px;
+
+      }
   
   .section-title {
     font-size: 2.5rem;
     color: #343a40;
     margin-bottom: 40px;
   }
-  
+  .info-container {
+    margin-right: 30px;
+    background: linear-gradient(to bottom, rgba(255, 204, 0, 0.3), rgba(255, 111, 0, 0.3)); /* Adjust colors and opacity as needed */
+    border-radius: 5%;
+  }
+
   .description {
     font-size: 1.2rem;
     color: #6c757d;
@@ -25,6 +38,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
+    min-height: 250px;
   }
   
   .code-image {

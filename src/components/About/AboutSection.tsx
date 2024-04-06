@@ -1,21 +1,54 @@
-import React from 'react';
+import React, {useRef, useEffect} from 'react';
 import './AboutSection.scss';
-import codeImage1 from '../../assets/images/4380747.jpg';
-// import codeImage2 from './images/code2.jpg';
+import TicTacToe from '../TicTacToe/TicTacToe';
 
 const AboutSection: React.FC = () => {
+    const Canvas = () => {
+        const canvasRef = useRef(null)
+        useEffect(() => {
+            const canvas = canvasRef.current;
+             //@ts-ignore
+            const context = canvas.getContext('2d');
+            
+            const draw = (event: any) => {
+            //@ts-ignore
+            const rect = canvas.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            
+            context.beginPath();
+            context.arc(x, y, 10, 0, 2 * Math.PI);
+            context.fillStyle = 'green';
+            context.fill();
+        }
+        //@ts-ignore
+        canvas.addEventListener('mousedown', draw);
+
+        return () => {
+            //@ts-ignore
+                  canvas.removeEventListener('mousedown', draw);
+               };
+    }, [])
+    return (
+        <canvas ref={canvasRef} />
+    )
+
+    }
   return (
     <section className="about-section">
-      <div className="about-content" style={{ backgroundImage: `url(${codeImage1})`}}>
-        <h2 className="section-title">About Me</h2>
-        <p className="description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-          rhoncus diam id metus dignissim commodo. Vestibulum fermentum est ut
-          viverra ultrices.
-        </p>
+      <div className="about-content row">
+        <div className='info-container'>
+            <h2 className="section-title">About Me</h2>
+            <p className="description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+            rhoncus diam id metus dignissim commodo. Vestibulum fermentum est ut
+            viverra ultrices.
+            </p>
+            <Canvas />
+        </div>
         <div className="image-grid">
-          {/* <img src={codeImage1} sizes='sm' alt="Coding 1" className="code-image" /> */}
-          {/* <img src={codeImage2} alt="Coding 2" className="code-image" /> */}
+            <h4>Bored already? Play some tic tac toe!</h4>
+            <TicTacToe />
         </div>
       </div>
     </section>

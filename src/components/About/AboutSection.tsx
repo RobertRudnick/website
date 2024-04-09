@@ -40,8 +40,8 @@ const skills: Skill[] = [
     {image: react, description: "react"},
 ];
 const links = [
-    {image: linkedIn, description: "linkedIn", href:"https://www.linkedin.com/in/robert-rudnicki-a565011a2/"},
-    {image: instagram, description: 'instagram', href:"https://www.instagram.com/rrrudnicki/"}
+    {image: linkedIn, description: "linkedIn", href:"https://www.linkedin.com/in/robert-rudnicki-a565011a2/", className: "linked-in"},
+    {image: instagram, description: 'instagram', href:"https://www.instagram.com/rrrudnicki/", className: 'instagram'}
 ]
 const skills1 = (skills.slice(0, skills.length/2) as Skill[])
 const skills2 = (skills.slice(skills.length/2 ) as Skill[])
@@ -84,16 +84,14 @@ const AboutSection: React.FC = () => {
                     Hey there, I'm Robert, a frontend developer based in Poland. I'm all about diving into the world of Angular and React frameworks, crafting sleek interfaces that are as beautiful as they are intuitive.
                     <br /><br />
                     When I'm not neck-deep in code, you'll find me out exploring the great outdoors, shooting hoops on the basketball court, honing my martial arts skills, or immersing myself in the latest video game adventures. Balancing work with play keeps me inspired and ready to tackle new challenges head-on.
-                    <br /><br />
-                    I'm passionate about leveraging technology to solve real-world problems and enhance user experiences. With my finger on the pulse of the latest trends and technologies in frontend development, I'm always eager to learn and grow.
-                    <br /><br />
-                    Let's chat about how I can inject some fresh ideas and creativity into your next project!
+                    <br />
+                    <div className="connect">Let's chat about how I can inject some fresh ideas and creativity into your next project!</div>
                     </div>
                     <p className="find-me">
                         You can also find me there 
                         {links.map(link => {
                             return <Link to={link.href} target='_blank'>
-                                <img src={link.image} alt={link.description} style={{width:'40px', height: '40px', margin: '10px'}} />
+                                <img src={link.image} alt={link.description} style={{width:'40px', height: '40px', margin: '15px'}} className={link.className} />
                             </Link>
                         })}
                     </p>

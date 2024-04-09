@@ -15,7 +15,7 @@
   }
   
   .gif-container {
-    position: absolute;
+    position: fixed;
     top: 106px;
     left: 0;
     width: 100%;
@@ -61,11 +61,15 @@
   }
   .description {
     font-size: 1.2rem;
-    color: #6c757d;
+    color: #343a40;
     line-height: 1.6;
     margin-bottom: 20px;
   }
-  
+
+  .connect {
+    padding-left: 180px;
+    margin-top: 60px;
+  }
   .skills-list {
     display: flex;
     flex-wrap: wrap;
@@ -78,6 +82,7 @@
     align-items: center;
     display: flex;
     flex-direction: row;
+    margin-right: 40px;
     font-size: 1.2rem;
   }
   .skills-list-item {
@@ -99,4 +104,26 @@
     border-radius: 8px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   }
-  
+
+  .linked-in {
+
+    border-radius: 50%;
+    box-shadow: 0px 0px 3px 2px #ffffff;
+    animation: glow1 1.5s linear infinite alternate;
+  }
+
+  .instagram {
+    border-radius: 20%;
+    box-shadow: 0px 0px 3px 2px #f21616;
+    animation: glow2 1.5s linear infinite alternate;
+  }
+  @keyframes glow1{
+    to {
+      box-shadow: 0px 0px 15px 10px #185ef5;
+    }
+  }
+  @keyframes glow2{
+    to {
+      box-shadow: 0px 0px 15px 10px #ee4bd0;
+    }
+  }

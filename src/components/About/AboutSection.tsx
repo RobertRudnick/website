@@ -19,25 +19,25 @@ import react from '../../assets/icons/React-Dark.svg'
 import { Link } from 'react-router-dom';
 
 
-type Skill = { image: string; description: string; };
+type Skill = { image: string; description: string; href: string;};
 
 const quadSword = require('../../assets/gifs/general-grievous.webp');
 const myImage = require('../../assets/images/myImage.jpg')
 const skills: Skill[] = [
-    {image: angular, description:"angular"},
-    {image: bitBucket , description: "bitbucket"},
-    {image: bootstrap, description: "bootstrap"},
-    {image: css, description: "css"},
-    {image: cypress, description: "cypress"},
-    {image: docker, description: "docker"},
-    {image: github, description: "github"},
-    {image: html, description: "html"},
-    {image: javascript, description: "javascript"},
-    {image: nodeJs, description: "nodeJs"},
-    {image: npm, description: "node package manager"},
-    {image: postman, description: "postman"},
-    {image: sass, description: "sass"},
-    {image: react, description: "react"},
+    {image: angular, description:"angular", href:"https://angular.io"},
+    {image: bitBucket , description: "bitbucket",  href:"https://bitbucket.org"},
+    {image: bootstrap, description: "bootstrap",  href:"https://getbootstrap.com/docs/4.1/getting-started/introduction/"},
+    {image: css, description: "css",  href:"https://developer.mozilla.org/en-US/docs/Web/CSS"},
+    {image: cypress, description: "cypress",  href:"https://cypress.io"},
+    {image: docker, description: "docker",  href:"https://docker.comc"},
+    {image: github, description: "github",  href:"https://github.com"},
+    {image: html, description: "html",  href:"https://html.com/tags/"},
+    {image: javascript, description: "javascript",  href:"https://www.javascript.com/"},
+    {image: nodeJs, description: "nodeJs",  href:"https://nodejs.org/en"},
+    {image: npm, description: "node package manager",  href:"https://www.npmjs.com"},
+    {image: postman, description: "postman",  href:"https://www.postman.com"},
+    {image: sass, description: "sass",  href:"https://sass-lang.com"},
+    {image: react, description: "react",  href:"https://react.dev"},
 ];
 const links = [
     {image: linkedIn, description: "linkedIn", href:"https://www.linkedin.com/in/robert-rudnicki-a565011a2/", className: "linked-in"},
@@ -62,20 +62,19 @@ const AboutSection: React.FC = () => {
          </div> : 
          <></> }
         <div className="about-content row">
-            <div className='skills-items-1'>
-       
-            </div>
             <div className='info-container'>
-                <div>             
+                <div className='skills-container'>             
                     {skills1.map(skill =>{
                         return (
-                        <img 
-                        key={skill.description}
-                        className='skills-list-item'
-                        src={skill.image}
-                        alt={skill.description}
-                        style={{ width: '60px', height: '60px' }}
-                        />)
+                            <Link to={skill.href} target='_blank'>
+                            <img 
+                            key={skill.description}
+                            className='skills-list-item'
+                            src={skill.image}
+                            alt={skill.description}
+                            style={{ width: '60px', height: '60px' }}
+                            />
+                        </Link>)
                     })}
                 </div>
                 <div className="description-container">
@@ -84,9 +83,9 @@ const AboutSection: React.FC = () => {
                     Hey there, I'm Robert, a frontend developer based in Poland. I'm all about diving into the world of Angular and React frameworks, crafting sleek interfaces that are as beautiful as they are intuitive.
                     <br /><br />
                     When I'm not neck-deep in code, you'll find me out exploring the great outdoors, shooting hoops on the basketball court, honing my martial arts skills, or immersing myself in the latest video game adventures. Balancing work with play keeps me inspired and ready to tackle new challenges head-on.
+                    <br /><br />
+                    Let's chat about how I can inject some fresh ideas and creativity into your next project!
                     <br />
-                    <div className="connect">Let's chat about how I can inject some fresh ideas and creativity into your next project!</div>
-                    </div>
                     <p className="find-me">
                         You can also find me there 
                         {links.map(link => {
@@ -95,18 +94,21 @@ const AboutSection: React.FC = () => {
                             </Link>
                         })}
                     </p>
+                    </div>
                 </div>
                 <div>
-                    <div>             
+                    <div className='skills-container'>             
                     {skills2.map(skill =>{
                         return (
+                    <Link to={skill.href} target='_blank'>
                         <img 
                         key={skill.description}
                         className='skills-list-item'
                         src={skill.image}
                         alt={skill.description}
                         style={{ width: '60px', height: '60px' }}
-                        />)
+                        />
+                    </Link>)
                     })}
                     </div>
                 </div>

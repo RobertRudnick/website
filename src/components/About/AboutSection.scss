@@ -8,6 +8,7 @@
     max-width: 100%;
     max-height: 60%;
     margin: 0 auto;
+    padding-top: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,15 +34,22 @@
   .section-title {
     font-size: 2.5rem;
     color: #343a40;
-    margin-bottom: 40px;
+    padding-bottom: 40px;
+    background-color: rgba( 255,255,255, 0.5 );
+    margin-bottom: 0;
+
   }
   .description-container {
-    min-width: 90%;
+    width: 90%;
+    padding: 0 300px;
+  }
+  .skills-container {
+    max-width: 60px;
   }
   .info-container {
     background-image: url('../../assets/images/background-about.jpg');
     border-radius: 20px;
-    padding: 20px;
+    padding: 0 20px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     max-width: 100%;
     min-height: 792px;
@@ -63,7 +71,12 @@
     font-size: 1.2rem;
     color: #343a40;
     line-height: 1.6;
+    margin-top: 0;
     margin-bottom: 20px;
+    background-color: rgba( 255,255,255, 0.5 );
+    border-bottom-right-radius: 10%;
+    border-bottom-left-radius: 10%;
+
   }
 
   .connect {
